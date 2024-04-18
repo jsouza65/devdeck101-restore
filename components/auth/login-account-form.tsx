@@ -2,7 +2,7 @@
 import * as z from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from '@/components/ui/form';
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '../ui/button';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
@@ -63,6 +63,7 @@ export default function LoginAccountForm() {
                   <Input placeholder='e-mail' {...field} />
                 </FormControl>
                 <FormDescription>Este é o seu e-mail.</FormDescription>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -71,9 +72,10 @@ export default function LoginAccountForm() {
               <FormItem>
                 <FormLabel>Senha</FormLabel>
                 <FormControl>
-                  <Input placeholder='senha' {...field} />
+                  <Input type='password' placeholder='senha' {...field} />
                 </FormControl>
                 <FormDescription>Este é a sua senha.</FormDescription>
+                <FormMessage />
               </FormItem>
             )}
           />
